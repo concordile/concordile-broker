@@ -1,0 +1,14 @@
+GET http://localhost:1975/api/v1/consumers
+Accept: application/json
+
+###
+
+GET http://localhost:1975/api/v1/consumers/consumer-service
+Accept: application/json
+
+###
+
+GET http://localhost:1975/api/v1/consumers/consumer-service/producers
+Accept: application/json
+
+###

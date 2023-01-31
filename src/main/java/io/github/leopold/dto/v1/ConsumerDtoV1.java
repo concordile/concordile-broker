@@ -1,0 +1,16 @@
+package io.github.leopold.dto.v1;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ConsumerDtoV1 {
+
+    private String name;
+
+}
