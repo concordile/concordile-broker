@@ -1,0 +1,11 @@
+name: leopold
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: leopold-db
+      POSTGRES_USER: leopold-user
+      POSTGRES_PASSWORD: leopold-pass
+    ports:
+      - 5432:5432
