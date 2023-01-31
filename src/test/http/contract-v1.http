@@ -1,0 +1,10 @@
+POST http://localhost:1975/api/v1/contracts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "producer": "producer-service",
+  "consumer": "consumer-service"
+}
+
+###
