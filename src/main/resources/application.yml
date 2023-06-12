@@ -4,10 +4,6 @@ server:
 spring:
   application:
     name: leopold
-  datasource:
-    url: jdbc:postgresql://localhost:5432/leopold-db
-    username: leopold-user
-    password: leopold-pass
   jpa:
     hibernate:
       ddl-auto: 'create-drop'

@@ -2,7 +2,7 @@ name: leopold
 
 services:
   postgres:
-    image: postgres
+    image: postgres:15
     environment:
       POSTGRES_DB: leopold-db
       POSTGRES_USER: leopold-user
