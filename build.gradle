@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version "${springBootPluginVersion}"
     id 'io.spring.dependency-management' version "${springDepManPluginVersion}"
+    id 'org.graalvm.buildtools.native' version "${graalvmPluginVersion}"
 }
 
 group = 'io.github.projectleopold'
