@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.exception.v1;
+package io.github.projectleopold.exception;
 
-public class ConsumerNotFoundExceptionV1 extends DomainNotFoundExceptionV1 {
+public class DomainNotFoundLeopoldException extends DomainLeopoldException {
 
-    public ConsumerNotFoundExceptionV1(String consumerName) {
-        super("Consumer not found by name: '" + consumerName + "'");
+    public DomainNotFoundLeopoldException(String message) {
+        super(message);
+    }
+
+    public DomainNotFoundLeopoldException(String message, Throwable cause) {
+        super(message, cause);
     }
 
 }

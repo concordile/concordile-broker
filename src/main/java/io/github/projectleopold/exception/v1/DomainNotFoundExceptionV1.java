@@ -16,13 +16,14 @@
 
 package io.github.projectleopold.exception.v1;
 
+import io.github.projectleopold.exception.DomainNotFoundLeopoldException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class BaseNotFoundExceptionV1 extends IllegalStateException {
+public class DomainNotFoundExceptionV1 extends DomainNotFoundLeopoldException {
 
-    public BaseNotFoundExceptionV1(String message) {
+    public DomainNotFoundExceptionV1(String message) {
         super(message);
     }
 
