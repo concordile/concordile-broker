@@ -16,10 +16,12 @@
 
 package io.github.projectleopold.service;
 
-import io.github.projectleopold.repository.ConsumerRepository;
-import io.github.projectleopold.repository.ProducerRepository;
 import io.github.projectleopold.domain.Consumer;
 import io.github.projectleopold.domain.Producer;
+import io.github.projectleopold.mapper.ConsumerEntityMapper;
+import io.github.projectleopold.mapper.ProducerEntityMapper;
+import io.github.projectleopold.repository.ConsumerRepository;
+import io.github.projectleopold.repository.ProducerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -34,32 +36,26 @@ public class SimpleConsumerService implements ConsumerService {
     private final ConsumerRepository consumerRepository;
     private final ProducerRepository producerRepository;
 
+    private final ConsumerEntityMapper consumerEntityMapper;
+    private final ProducerEntityMapper producerEntityMapper;
+
     @Override
     public Optional<Consumer> findConsumer(String consumerName) {
-        //TODO: Move mapping
         return consumerRepository.findByName(consumerName)
-                .map(consumer -> Consumer.builder()
-                        .name(consumer.getName())
-                        .build());
+                .map(consumerEntityMapper::mapEntityToDomain);
     }
 
     @Override
     public List<Consumer> getAllConsumers() {
-        //TODO: Move mapping
         return consumerRepository.findAll().stream()
-                .map(consumer -> Consumer.builder()
-                        .name(consumer.getName())
-                        .build())
+                .map(consumerEntityMapper::mapEntityToDomain)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<Producer> getAllProducers(String consumerName) {
-        //TODO: Move mapping
         return producerRepository.findAllByConsumerName(consumerName).stream()
-                .map(producer -> Producer.builder()
-                        .name(producer.getName())
-                        .build())
+                .map(producerEntityMapper::mapEntityToDomain)
                 .collect(Collectors.toList());
     }
 
