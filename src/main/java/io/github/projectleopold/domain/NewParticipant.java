@@ -14,13 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.service;
+package io.github.projectleopold.domain;
 
-import io.github.projectleopold.domain.NewParticipant;
-import io.github.projectleopold.domain.Participant;
 
-public interface ParticipantService {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    Participant createParticipant(NewParticipant domain);
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class NewParticipant {
+
+    private String name;
 
 }

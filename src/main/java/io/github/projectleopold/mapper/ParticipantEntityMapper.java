@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.service;
+package io.github.projectleopold.mapper;
 
-import io.github.projectleopold.domain.NewParticipant;
+import io.github.projectleopold.configuration.SpringMapStructConfiguration;
 import io.github.projectleopold.domain.Participant;
+import io.github.projectleopold.entity.ParticipantEntity;
+import org.mapstruct.Mapper;
 
-public interface ParticipantService {
+@Mapper(config = SpringMapStructConfiguration.class)
+public interface ParticipantEntityMapper
+        extends EntityMapper<ParticipantEntity, Participant> {
 
-    Participant createParticipant(NewParticipant domain);
+    @Override
+    Participant mapEntityToDomain(ParticipantEntity entity);
 
 }

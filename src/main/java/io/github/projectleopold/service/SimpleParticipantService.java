@@ -16,8 +16,11 @@
 
 package io.github.projectleopold.service;
 
+import io.github.projectleopold.domain.NewParticipant;
 import io.github.projectleopold.domain.Participant;
 import io.github.projectleopold.entity.ParticipantEntity;
+import io.github.projectleopold.mapper.NewParticipantDomainMapper;
+import io.github.projectleopold.mapper.ParticipantEntityMapper;
 import io.github.projectleopold.repository.ParticipantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,16 +31,14 @@ public class SimpleParticipantService implements ParticipantService {
 
     private final ParticipantRepository participantRepository;
 
+    private final NewParticipantDomainMapper newParticipantDomainMapper;
+    private final ParticipantEntityMapper participantEntityMapper;
+
     @Override
-    public Participant createParticipant(String name) {
-        //TODO: Move mapping
-        ParticipantEntity entity = ParticipantEntity.builder()
-                .name(name)
-                .build();
+    public Participant createParticipant(NewParticipant domain) {
+        ParticipantEntity entity = newParticipantDomainMapper.mapDomainToEntity(domain);
         ParticipantEntity result = participantRepository.save(entity);
-        return Participant.builder()
-                .name(result.getName())
-                .build();
+        return participantEntityMapper.mapEntityToDomain(result);
     }
 
 }
