@@ -19,6 +19,8 @@ package io.github.projectleopold.service.v1;
 import io.github.projectleopold.dto.v1.ConsumerDtoV1;
 import io.github.projectleopold.dto.v1.ProducerDtoV1;
 import io.github.projectleopold.exception.v1.ConsumerNotFoundExceptionV1;
+import io.github.projectleopold.mapper.v1.ConsumerResponseMapperV1;
+import io.github.projectleopold.mapper.v1.ProducerResponseMapperV1;
 import io.github.projectleopold.service.ConsumerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,33 +34,27 @@ public class SimpleConsumerServiceV1 implements ConsumerServiceV1 {
 
     private final ConsumerService consumerService;
 
+    private final ConsumerResponseMapperV1 consumerResponseMapper;
+    private final ProducerResponseMapperV1 producerResponseMapper;
+
     @Override
     public List<ConsumerDtoV1> getConsumers() {
-        //TODO: Move mapping
         return consumerService.getAllConsumers().stream()
-                .map(consumer -> ConsumerDtoV1.builder()
-                        .name(consumer.getName())
-                        .build())
+                .map(consumerResponseMapper::mapDomainToResponse)
                 .collect(Collectors.toList());
     }
 
     @Override
     public ConsumerDtoV1 getConsumer(String consumerName) {
-        //TODO: Move mapping
         return consumerService.findConsumer(consumerName)
-                .map(consumer -> ConsumerDtoV1.builder()
-                        .name(consumer.getName())
-                        .build())
+                .map(consumerResponseMapper::mapDomainToResponse)
                 .orElseThrow(() -> new ConsumerNotFoundExceptionV1(consumerName));
     }
 
     @Override
     public List<ProducerDtoV1> getProducers(String consumerName) {
-        //TODO: Move mapping
         return consumerService.getAllProducers(consumerName).stream()
-                .map(producer -> ProducerDtoV1.builder()
-                        .name(producer.getName())
-                        .build())
+                .map(producerResponseMapper::mapDomainToResponse)
                 .collect(Collectors.toList());
     }
 

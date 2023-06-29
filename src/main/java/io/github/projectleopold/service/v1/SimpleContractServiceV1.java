@@ -20,6 +20,8 @@ import io.github.projectleopold.domain.Contract;
 import io.github.projectleopold.domain.NewContract;
 import io.github.projectleopold.dto.v1.ContractDtoV1;
 import io.github.projectleopold.dto.v1.NewContractDtoV1;
+import io.github.projectleopold.mapper.v1.ContractResponseMapperV1;
+import io.github.projectleopold.mapper.v1.NewContractRequestMapperV1;
 import io.github.projectleopold.service.ContractService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,19 +32,14 @@ public class SimpleContractServiceV1 implements ContractServiceV1 {
 
     private final ContractService contractService;
 
+    private final NewContractRequestMapperV1 newContractRequestMapper;
+    private final ContractResponseMapperV1 contractResponseMapper;
+
     @Override
     public ContractDtoV1 addContract(NewContractDtoV1 dto) {
-        //TODO: Move mapping
-        NewContract domain = NewContract.builder()
-                .producer(dto.getProducer())
-                .consumer(dto.getConsumer())
-                .build();
+        NewContract domain = newContractRequestMapper.mapRequestToDomain(dto);
         Contract result = contractService.createContract(domain);
-        return ContractDtoV1.builder()
-                .id(result.getId())
-                .producer(result.getProducer())
-                .consumer(result.getConsumer())
-                .build();
+        return contractResponseMapper.mapDomainToResponse(result);
     }
 
 }
