@@ -16,17 +16,10 @@
 
 package io.github.projectleopold.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class NewParticipant {
-
-    private String name;
-
+@EqualsAndHashCode(callSuper = true)
+public class NewProducer extends NewParticipant {
 }

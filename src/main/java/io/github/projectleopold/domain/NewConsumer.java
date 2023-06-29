@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.service;
+package io.github.projectleopold.domain;
 
-import io.github.projectleopold.domain.NewParticipant;
-import io.github.projectleopold.domain.Participant;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-public interface ParticipantService {
-
-    Participant createParticipant(NewParticipant domain);
-
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class NewConsumer extends NewParticipant {
 }
