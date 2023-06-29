@@ -23,10 +23,11 @@ import java.util.Optional;
 
 public interface ConsumerRepository {
 
+    ConsumerEntity save(ConsumerEntity consumer);
+
     Optional<ConsumerEntity> findByName(String consumerName);
 
     List<ConsumerEntity> findAll();
 
     List<ConsumerEntity> findAllByProducerName(String producerName);
-
 }

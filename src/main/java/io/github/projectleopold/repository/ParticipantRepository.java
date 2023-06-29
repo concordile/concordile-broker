@@ -20,6 +20,6 @@ import io.github.projectleopold.entity.ParticipantEntity;
 
 public interface ParticipantRepository {
 
-    ParticipantEntity save(ParticipantEntity entity);
+    ParticipantEntity save(ParticipantEntity participant);
 
 }

@@ -20,6 +20,6 @@ import io.github.projectleopold.entity.ContractEntity;
 
 public interface ContractRepository {
 
-    ContractEntity save(ContractEntity entity);
+    ContractEntity save(ContractEntity contract);
 
 }

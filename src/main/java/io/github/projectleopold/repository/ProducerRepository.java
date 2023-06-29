@@ -23,6 +23,8 @@ import java.util.Optional;
 
 public interface ProducerRepository {
 
+    ProducerEntity save(ProducerEntity producer);
+
     Optional<ProducerEntity> findByName(String producerName);
 
     List<ProducerEntity> findAll();
