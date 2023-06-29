@@ -17,8 +17,11 @@
 package io.github.projectleopold.service;
 
 import io.github.projectleopold.domain.Consumer;
+import io.github.projectleopold.domain.NewProducer;
 import io.github.projectleopold.domain.Producer;
+import io.github.projectleopold.entity.ProducerEntity;
 import io.github.projectleopold.mapper.ConsumerEntityMapper;
+import io.github.projectleopold.mapper.NewProducerDomainMapper;
 import io.github.projectleopold.mapper.ProducerEntityMapper;
 import io.github.projectleopold.repository.ConsumerRepository;
 import io.github.projectleopold.repository.ProducerRepository;
@@ -36,8 +39,16 @@ public class SimpleProducerService implements ProducerService {
     private final ProducerRepository producerRepository;
     private final ConsumerRepository consumerRepository;
 
+    private final NewProducerDomainMapper newProducerDomainMapper;
     private final ProducerEntityMapper producerEntityMapper;
     private final ConsumerEntityMapper consumerEntityMapper;
+
+    @Override
+    public Producer createProducer(NewProducer newProducer) {
+        ProducerEntity entity = newProducerDomainMapper.mapDomainToEntity(newProducer);
+        ProducerEntity result = producerRepository.save(entity);
+        return producerEntityMapper.mapEntityToDomain(result);
+    }
 
     @Override
     public Optional<Producer> findProducer(String producerName) {

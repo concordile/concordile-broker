@@ -17,12 +17,15 @@
 package io.github.projectleopold.service;
 
 import io.github.projectleopold.domain.Consumer;
+import io.github.projectleopold.domain.NewProducer;
 import io.github.projectleopold.domain.Producer;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ProducerService {
+
+    Producer createProducer(NewProducer newProducer);
 
     Optional<Producer> findProducer(String producerName);
 
