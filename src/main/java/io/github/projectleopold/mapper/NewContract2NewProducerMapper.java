@@ -14,13 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.service;
+package io.github.projectleopold.mapper;
 
-import io.github.projectleopold.domain.Contract;
+import io.github.projectleopold.configuration.SpringMapStructConfiguration;
 import io.github.projectleopold.domain.NewContract;
+import io.github.projectleopold.domain.NewProducer;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-public interface ContractService {
+@Mapper(config = SpringMapStructConfiguration.class)
+public interface NewContract2NewProducerMapper
+        extends SimpleMapper<NewContract, NewProducer> {
 
-    Contract createContract(NewContract newContract);
+    @Override
+    @Mapping(target = "name", source = "producer")
+    NewProducer map(NewContract newContract);
 
 }
