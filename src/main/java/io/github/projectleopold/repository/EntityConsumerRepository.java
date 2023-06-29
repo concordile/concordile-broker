@@ -18,7 +18,7 @@ package io.github.projectleopold.repository;
 
 import io.github.projectleopold.entity.ConsumerEntity;
 import io.github.projectleopold.entity.ParticipantEntity;
-import io.github.projectleopold.mapper.Consumer2ParticipantEntityBackMapper;
+import io.github.projectleopold.mapper.entity.Consumer2ParticipantEntityBackMapper;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;

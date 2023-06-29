@@ -14,20 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.mapper.v1;
+@NonNullApi
+package io.github.projectleopold.mapper.entity;
 
-
-import io.github.projectleopold.configuration.SpringMapStructConfiguration;
-import io.github.projectleopold.domain.NewContract;
-import io.github.projectleopold.dto.v1.NewContractDtoV1;
-import io.github.projectleopold.mapper.RequestMapper;
-import org.mapstruct.Mapper;
-
-@Mapper(config = SpringMapStructConfiguration.class)
-public interface NewContractRequestMapperV1
-        extends RequestMapper<NewContractDtoV1, NewContract> {
-
-    @Override
-    NewContract mapRequestToDomain(NewContractDtoV1 newContractDtoV1);
-
-}
+import org.springframework.lang.NonNullApi;

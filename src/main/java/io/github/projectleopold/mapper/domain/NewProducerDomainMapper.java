@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.mapper.v1;
+package io.github.projectleopold.mapper.domain;
 
 import io.github.projectleopold.configuration.SpringMapStructConfiguration;
-import io.github.projectleopold.domain.Consumer;
-import io.github.projectleopold.dto.v1.ConsumerDtoV1;
-import io.github.projectleopold.mapper.ResponseMapper;
+import io.github.projectleopold.domain.NewProducer;
+import io.github.projectleopold.entity.ProducerEntity;
+import io.github.projectleopold.mapper.DomainMapper;
 import org.mapstruct.Mapper;
 
 @Mapper(config = SpringMapStructConfiguration.class)
-public interface ConsumerResponseMapperV1
-        extends ResponseMapper<Consumer, ConsumerDtoV1> {
+public interface NewProducerDomainMapper
+        extends DomainMapper<NewProducer, ProducerEntity> {
 
     @Override
-    ConsumerDtoV1 mapDomainToResponse(Consumer consumer);
+    ProducerEntity mapDomainToEntity(NewProducer newProducer);
 
 }

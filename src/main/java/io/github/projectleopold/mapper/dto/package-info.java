@@ -14,18 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.mapper;
+@NonNullApi
+package io.github.projectleopold.mapper.dto;
 
-import io.github.projectleopold.configuration.SpringMapStructConfiguration;
-import io.github.projectleopold.domain.NewConsumer;
-import io.github.projectleopold.entity.ConsumerEntity;
-import org.mapstruct.Mapper;
-
-@Mapper(config = SpringMapStructConfiguration.class)
-public interface NewConsumerDomainMapper
-        extends DomainMapper<NewConsumer, ConsumerEntity> {
-
-    @Override
-    ConsumerEntity mapDomainToEntity(NewConsumer newConsumer);
-
-}
+import org.springframework.lang.NonNullApi;

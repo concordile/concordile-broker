@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.mapper.v1;
+package io.github.projectleopold.mapper.dto.v1;
+
 
 import io.github.projectleopold.configuration.SpringMapStructConfiguration;
-import io.github.projectleopold.domain.Producer;
-import io.github.projectleopold.dto.v1.ProducerDtoV1;
+import io.github.projectleopold.domain.Contract;
+import io.github.projectleopold.dto.v1.ContractDtoV1;
 import io.github.projectleopold.mapper.ResponseMapper;
 import org.mapstruct.Mapper;
 
 @Mapper(config = SpringMapStructConfiguration.class)
-public interface ProducerResponseMapperV1
-        extends ResponseMapper<Producer, ProducerDtoV1> {
+public interface ContractResponseMapperV1
+        extends ResponseMapper<Contract, ContractDtoV1> {
 
     @Override
-    ProducerDtoV1 mapDomainToResponse(Producer producer);
+    ContractDtoV1 mapDomainToResponse(Contract contract);
 
 }

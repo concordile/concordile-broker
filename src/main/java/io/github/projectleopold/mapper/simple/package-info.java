@@ -14,18 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.mapper;
+@NonNullApi
+package io.github.projectleopold.mapper.simple;
 
-import io.github.projectleopold.configuration.SpringMapStructConfiguration;
-import io.github.projectleopold.domain.Producer;
-import io.github.projectleopold.entity.ProducerEntity;
-import org.mapstruct.Mapper;
-
-@Mapper(config = SpringMapStructConfiguration.class)
-public interface ProducerEntityMapper
-        extends EntityMapper<ProducerEntity, Producer> {
-
-    @Override
-    Producer mapEntityToDomain(ProducerEntity producerEntity);
-
-}
+import org.springframework.lang.NonNullApi;

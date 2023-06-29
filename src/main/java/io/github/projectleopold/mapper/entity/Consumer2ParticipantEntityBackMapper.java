@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.mapper;
+package io.github.projectleopold.mapper.entity;
 
 import io.github.projectleopold.configuration.SpringMapStructConfiguration;
 import io.github.projectleopold.entity.ConsumerEntity;
 import io.github.projectleopold.entity.ParticipantEntity;
+import io.github.projectleopold.mapper.BackMapper;
 import org.mapstruct.Mapper;
 
 @Mapper(config = SpringMapStructConfiguration.class)

@@ -14,20 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.projectleopold.mapper;
+@NonNullApi
+package io.github.projectleopold.mapper.dto.v1;
 
-import io.github.projectleopold.configuration.SpringMapStructConfiguration;
-import io.github.projectleopold.domain.NewConsumer;
-import io.github.projectleopold.domain.NewContract;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-
-@Mapper(config = SpringMapStructConfiguration.class)
-public interface NewContract2NewConsumerMapper
-        extends SimpleMapper<NewContract, NewConsumer> {
-
-    @Override
-    @Mapping(target = "name", source = "consumer")
-    NewConsumer map(NewContract newContract);
-
-}
+import org.springframework.lang.NonNullApi;
