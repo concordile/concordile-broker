@@ -26,6 +26,6 @@ public interface ProducerEntityMapper
         extends EntityMapper<ProducerEntity, Producer> {
 
     @Override
-    Producer mapEntityToDomain(ProducerEntity entity);
+    Producer mapEntityToDomain(ProducerEntity producerEntity);
 
 }

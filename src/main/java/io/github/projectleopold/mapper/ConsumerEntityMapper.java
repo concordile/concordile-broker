@@ -26,6 +26,6 @@ public interface ConsumerEntityMapper
         extends EntityMapper<ConsumerEntity, Consumer> {
 
     @Override
-    Consumer mapEntityToDomain(ConsumerEntity entity);
+    Consumer mapEntityToDomain(ConsumerEntity consumerEntity);
 
 }
