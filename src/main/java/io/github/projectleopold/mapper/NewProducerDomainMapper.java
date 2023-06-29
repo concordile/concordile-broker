@@ -17,15 +17,15 @@
 package io.github.projectleopold.mapper;
 
 import io.github.projectleopold.configuration.SpringMapStructConfiguration;
-import io.github.projectleopold.domain.NewParticipant;
-import io.github.projectleopold.entity.ParticipantEntity;
+import io.github.projectleopold.domain.NewProducer;
+import io.github.projectleopold.entity.ProducerEntity;
 import org.mapstruct.Mapper;
 
 @Mapper(config = SpringMapStructConfiguration.class)
-public interface NewParticipantDomainMapper
-        extends DomainMapper<NewParticipant, ParticipantEntity> {
+public interface NewProducerDomainMapper
+        extends DomainMapper<NewProducer, ProducerEntity> {
 
     @Override
-    ParticipantEntity mapDomainToEntity(NewParticipant domain);
+    ProducerEntity mapDomainToEntity(NewProducer newProducer);
 
 }
