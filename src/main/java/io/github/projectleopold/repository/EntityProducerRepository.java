@@ -18,6 +18,7 @@ package io.github.projectleopold.repository;
 
 import io.github.projectleopold.entity.ParticipantEntity;
 import io.github.projectleopold.entity.ProducerEntity;
+import io.github.projectleopold.mapper.Producer2ParticipantEntityBackMapper;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
@@ -34,6 +35,17 @@ public class EntityProducerRepository implements ProducerRepository {
 
     private final EntityManager entityManager;
 
+    private final ParticipantRepository participantRepository;
+
+    private final Producer2ParticipantEntityBackMapper entityMapper;
+
+    @Override
+    public ProducerEntity save(ProducerEntity producer) {
+        ParticipantEntity participant = entityMapper.map(producer);
+        ParticipantEntity result = participantRepository.save(participant);
+        return entityMapper.mapBack(result);
+    }
+
     @Override
     public Optional<ProducerEntity> findByName(String producerName) {
         TypedQuery<ParticipantEntity> query = entityManager.createQuery("""
@@ -46,11 +58,8 @@ public class EntityProducerRepository implements ProducerRepository {
                 """, ParticipantEntity.class);
         query.setParameter("name", producerName);
         try {
-            //TODO: Move mapping
-            ParticipantEntity participant = query.getSingleResult();
-            return Optional.of(ProducerEntity.builder()
-                    .name(participant.getName())
-                    .build());
+            ParticipantEntity result = query.getSingleResult();
+            return Optional.of(entityMapper.mapBack(result));
         } catch (NoResultException ignore) {
             return Optional.empty();
         }
@@ -64,12 +73,9 @@ public class EntityProducerRepository implements ProducerRepository {
                 WHERE p.name IN (SELECT DISTINCT producer
                                  FROM Contract)
                 """, ParticipantEntity.class);
-        //TODO: Move mapping
-        List<ParticipantEntity> participants = query.getResultList();
-        return participants.stream()
-                .map(participant -> ProducerEntity.builder()
-                        .name(participant.getName())
-                        .build())
+        List<ParticipantEntity> results = query.getResultList();
+        return results.stream()
+                .map(entityMapper::mapBack)
                 .collect(Collectors.toList());
     }
 
@@ -83,12 +89,9 @@ public class EntityProducerRepository implements ProducerRepository {
                                  WHERE consumer = :name)
                 """, ParticipantEntity.class);
         query.setParameter("name", consumerName);
-        //TODO: Move mapping
-        List<ParticipantEntity> participants = query.getResultList();
-        return participants.stream()
-                .map(participant -> ProducerEntity.builder()
-                        .name(participant.getName())
-                        .build())
+        List<ParticipantEntity> results = query.getResultList();
+        return results.stream()
+                .map(entityMapper::mapBack)
                 .collect(Collectors.toList());
     }
 
