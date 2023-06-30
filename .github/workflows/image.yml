@@ -30,10 +30,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - run: docker --version
+
       - name: Build image
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: bootBuildImage --publishImage
+          arguments: bootBuildImage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_DOCKER_REGISTRY: ghcr.io
