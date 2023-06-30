@@ -40,3 +40,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_DOCKER_REGISTRY: ghcr.io
           GITHUB_DOCKER_URL: https://ghcr.io
+
+      - run: docker push ghcr.io/projectleopold/leopold:0.1.0-SNAPSHOT
