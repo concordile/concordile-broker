@@ -47,4 +47,11 @@ test {
 bootBuildImage {
     def registry = project.findProperty('github.pkg.docker.registry') ?: System.getenv('GITHUB_DOCKER_REGISTRY')
     imageName = "${registry}/projectleopold/${project.name}:${project.version}"
+    docker {
+        publishRegistry {
+            url = project.findProperty('github.pkg.docker.url') ?: System.getenv('GITHUB_DOCKER_URL')
+            username = project.findProperty('github.username') ?: System.getenv('GITHUB_ACTOR')
+            token = project.findProperty('github.token') ?: System.getenv('GITHUB_TOKEN')
+        }
+    }
 }
