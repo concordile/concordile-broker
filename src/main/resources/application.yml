@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: leopold
+    name: concordile-broker
   jpa:
     open-in-view: false
     hibernate:

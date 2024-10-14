@@ -5,7 +5,7 @@ plugins {
     id 'org.graalvm.buildtools.native' version "${graalvmPluginVersion}"
 }
 
-group = 'io.github.projectleopold'
+group = 'io.github.concordile'
 version = '0.1.0-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -46,7 +46,7 @@ test {
 
 bootBuildImage {
     def registry = project.findProperty('github.pkg.docker.registry') ?: System.getenv('GITHUB_DOCKER_REGISTRY')
-    imageName = "${registry}/projectleopold/${project.name}:${project.version}"
+    imageName = "${registry}/concordile/${project.name}:${project.version}"
     docker {
         publishRegistry {
             url = project.findProperty('github.pkg.docker.url') ?: System.getenv('GITHUB_DOCKER_URL')

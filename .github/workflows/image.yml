@@ -39,4 +39,4 @@ jobs:
           GITHUB_DOCKER_REGISTRY: ghcr.io
           GITHUB_DOCKER_URL: https://ghcr.io
 
-      - run: docker push ghcr.io/projectleopold/leopold:0.1.0-SNAPSHOT
+      - run: docker push ghcr.io/concordile/concordile-broker:0.1.0-SNAPSHOT

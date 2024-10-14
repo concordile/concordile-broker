@@ -1,11 +1,11 @@
-name: leopold
+name: concordile
 
 services:
   postgres:
     image: postgres:15
     environment:
-      POSTGRES_DB: leopold-db
-      POSTGRES_USER: leopold-user
-      POSTGRES_PASSWORD: leopold-pass
+      POSTGRES_DB: concordile-db
+      POSTGRES_USER: concordile-user
+      POSTGRES_PASSWORD: concordile-pass
     ports:
       - 5432:5432
