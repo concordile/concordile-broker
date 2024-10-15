@@ -23,6 +23,6 @@ export const options = {
 }
 
 export default function () {
-    http.get('http://localhost:1975/api/v1/consumers')
+    http.get('http://localhost:8080/api/v1/consumers')
     sleep(1)
 }

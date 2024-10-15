@@ -1,14 +1,14 @@
-GET http://localhost:1975/api/v1/producers
+GET http://localhost:8080/api/v1/producers
 Accept: application/json
 
 ###
 
-GET http://localhost:1975/api/v1/producers/producer-service
+GET http://localhost:8080/api/v1/producers/producer-service
 Accept: application/json
 
 ###
 
-GET http://localhost:1975/api/v1/producers/producer-service/consumers
+GET http://localhost:8080/api/v1/producers/producer-service/consumers
 Accept: application/json
 
 ###
