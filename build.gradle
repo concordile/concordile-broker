@@ -3,11 +3,17 @@ plugins {
     id 'org.springframework.boot' version "${springBootPluginVersion}"
     id 'io.spring.dependency-management' version "${springDepManPluginVersion}"
     id 'org.graalvm.buildtools.native' version "${graalvmPluginVersion}"
+    id 'org.hibernate.orm' version "${hibernatePluginVersion}"
 }
 
 group = 'io.github.concordile'
 version = '0.1.0-SNAPSHOT'
-sourceCompatibility = '17'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 configurations {
     compileOnly {
@@ -35,13 +41,21 @@ dependencies {
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
     testImplementation 'com.h2database:h2'
 
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 }
 
-test {
+tasks.named('test') {
     useJUnitPlatform()
+}
+
+hibernate {
+    enhancement {
+        enableAssociationManagement = true
+    }
 }
 
 bootBuildImage {
