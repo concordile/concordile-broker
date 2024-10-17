@@ -16,8 +16,8 @@
 
 package io.github.concordile.broker.controller.v1;
 
-import io.github.concordile.broker.dto.v1.ContractDtoV1;
-import io.github.concordile.broker.dto.v1.NewContractDtoV1;
+import io.github.concordile.broker.payload.v1.ContractResponseV1;
+import io.github.concordile.broker.payload.v1.NewContractRequestV1;
 import io.github.concordile.broker.service.v1.ContractServiceV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +33,7 @@ public class ContractControllerV1 {
     private final ContractServiceV1 service;
 
     @PostMapping
-    public ContractDtoV1 addContract(@RequestBody NewContractDtoV1 contract) {
+    public ContractResponseV1 addContract(@RequestBody NewContractRequestV1 contract) {
         return service.addContract(contract);
     }
 

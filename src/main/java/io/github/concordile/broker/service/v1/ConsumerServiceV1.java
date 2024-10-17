@@ -16,17 +16,17 @@
 
 package io.github.concordile.broker.service.v1;
 
-import io.github.concordile.broker.dto.v1.ConsumerDtoV1;
-import io.github.concordile.broker.dto.v1.ProducerDtoV1;
+import io.github.concordile.broker.payload.v1.ConsumerResponseV1;
+import io.github.concordile.broker.payload.v1.ProducerResponseV1;
 
 import java.util.List;
 
 public interface ConsumerServiceV1 {
 
-    List<ConsumerDtoV1> getConsumers();
+    List<ConsumerResponseV1> getConsumers();
 
-    ConsumerDtoV1 getConsumer(String consumerName);
+    ConsumerResponseV1 getConsumer(String consumerName);
 
-    List<ProducerDtoV1> getProducers(String consumerName);
+    List<ProducerResponseV1> getProducers(String consumerName);
 
 }

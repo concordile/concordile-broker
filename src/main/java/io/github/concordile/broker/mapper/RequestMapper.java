@@ -17,7 +17,7 @@
 package io.github.concordile.broker.mapper;
 
 /**
- * Mapping from a request (DTO) to a domain.
+ * Mapping from a request to a domain.
  *
  * @param <REQUEST> the request type
  * @param <DOMAIN>  the domain type

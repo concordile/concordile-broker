@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.concordile.broker.mapper.dto.v1;
+package io.github.concordile.broker.mapper.payload.v1;
 
 
 import io.github.concordile.broker.configuration.SpringMapStructConfiguration;
 import io.github.concordile.broker.domain.Contract;
-import io.github.concordile.broker.dto.v1.ContractDtoV1;
+import io.github.concordile.broker.payload.v1.ContractResponseV1;
 import io.github.concordile.broker.mapper.ResponseMapper;
 import org.mapstruct.Mapper;
 
 @Mapper(config = SpringMapStructConfiguration.class)
 public interface ContractResponseMapperV1
-        extends ResponseMapper<Contract, ContractDtoV1> {
+        extends ResponseMapper<Contract, ContractResponseV1> {
 
     @Override
-    ContractDtoV1 mapDomainToResponse(Contract contract);
+    ContractResponseV1 mapDomainToResponse(Contract contract);
 
 }

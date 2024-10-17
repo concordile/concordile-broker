@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.concordile.broker.dto.v1;
+package io.github.concordile.broker.payload.v1;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,8 +25,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConsumerDtoV1 {
+public class ContractResponseV1 {
 
-    private String name;
+    private String id;
+    private String producer;
+    private String consumer;
 
 }

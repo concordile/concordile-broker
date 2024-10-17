@@ -16,8 +16,8 @@
 
 package io.github.concordile.broker.controller.v1;
 
-import io.github.concordile.broker.dto.v1.ConsumerDtoV1;
-import io.github.concordile.broker.dto.v1.ProducerDtoV1;
+import io.github.concordile.broker.payload.v1.ConsumerResponseV1;
+import io.github.concordile.broker.payload.v1.ProducerResponseV1;
 import io.github.concordile.broker.service.v1.ConsumerServiceV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,17 +35,17 @@ public class ConsumerControllerV1 {
     private final ConsumerServiceV1 service;
 
     @GetMapping
-    public List<ConsumerDtoV1> getConsumers() {
+    public List<ConsumerResponseV1> getConsumers() {
         return service.getConsumers();
     }
 
     @GetMapping("/{consumerName}")
-    public ConsumerDtoV1 getConsumer(@PathVariable String consumerName) {
+    public ConsumerResponseV1 getConsumer(@PathVariable String consumerName) {
         return service.getConsumer(consumerName);
     }
 
     @GetMapping("/{consumerName}/producers")
-    public List<ProducerDtoV1> getProducers(@PathVariable String consumerName) {
+    public List<ProducerResponseV1> getProducers(@PathVariable String consumerName) {
         return service.getProducers(consumerName);
     }
 

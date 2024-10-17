@@ -18,10 +18,10 @@ package io.github.concordile.broker.service.v1;
 
 import io.github.concordile.broker.domain.Contract;
 import io.github.concordile.broker.domain.NewContract;
-import io.github.concordile.broker.dto.v1.ContractDtoV1;
-import io.github.concordile.broker.dto.v1.NewContractDtoV1;
-import io.github.concordile.broker.mapper.dto.v1.ContractResponseMapperV1;
-import io.github.concordile.broker.mapper.dto.v1.NewContractRequestMapperV1;
+import io.github.concordile.broker.payload.v1.ContractResponseV1;
+import io.github.concordile.broker.payload.v1.NewContractRequestV1;
+import io.github.concordile.broker.mapper.payload.v1.ContractResponseMapperV1;
+import io.github.concordile.broker.mapper.payload.v1.NewContractRequestMapperV1;
 import io.github.concordile.broker.service.ContractService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,8 +36,8 @@ public class SimpleContractServiceV1 implements ContractServiceV1 {
     private final ContractResponseMapperV1 contractResponseMapper;
 
     @Override
-    public ContractDtoV1 addContract(NewContractDtoV1 dto) {
-        NewContract domain = newContractRequestMapper.mapRequestToDomain(dto);
+    public ContractResponseV1 addContract(NewContractRequestV1 request) {
+        NewContract domain = newContractRequestMapper.mapRequestToDomain(request);
         Contract result = contractService.createContract(domain);
         return contractResponseMapper.mapDomainToResponse(result);
     }

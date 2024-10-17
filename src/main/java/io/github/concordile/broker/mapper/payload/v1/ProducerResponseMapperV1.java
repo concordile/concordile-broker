@@ -14,7 +14,19 @@
  * limitations under the License.
  */
 
-@NonNullApi
-package io.github.concordile.broker.mapper.dto.v1;
+package io.github.concordile.broker.mapper.payload.v1;
 
-import org.springframework.lang.NonNullApi;
+import io.github.concordile.broker.configuration.SpringMapStructConfiguration;
+import io.github.concordile.broker.domain.Producer;
+import io.github.concordile.broker.payload.v1.ProducerResponseV1;
+import io.github.concordile.broker.mapper.ResponseMapper;
+import org.mapstruct.Mapper;
+
+@Mapper(config = SpringMapStructConfiguration.class)
+public interface ProducerResponseMapperV1
+        extends ResponseMapper<Producer, ProducerResponseV1> {
+
+    @Override
+    ProducerResponseV1 mapDomainToResponse(Producer producer);
+
+}

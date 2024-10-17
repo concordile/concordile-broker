@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.concordile.broker.mapper.dto.v1;
+package io.github.concordile.broker.payload.v1;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import io.github.concordile.broker.configuration.SpringMapStructConfiguration;
-import io.github.concordile.broker.domain.NewContract;
-import io.github.concordile.broker.dto.v1.NewContractDtoV1;
-import io.github.concordile.broker.mapper.RequestMapper;
-import org.mapstruct.Mapper;
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ConsumerResponseV1 {
 
-@Mapper(config = SpringMapStructConfiguration.class)
-public interface NewContractRequestMapperV1
-        extends RequestMapper<NewContractDtoV1, NewContract> {
-
-    @Override
-    NewContract mapRequestToDomain(NewContractDtoV1 newContractDtoV1);
+    private String name;
 
 }

@@ -14,19 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.concordile.broker.dto.v1;
+@NonNullApi
+package io.github.concordile.broker.mapper.payload.v1;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class ProducerDtoV1 {
-
-    private String name;
-
-}
+import org.springframework.lang.NonNullApi;

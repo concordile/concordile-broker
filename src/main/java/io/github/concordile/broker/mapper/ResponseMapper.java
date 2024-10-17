@@ -17,7 +17,7 @@
 package io.github.concordile.broker.mapper;
 
 /**
- * Mapping from a domain to a response (DTO).
+ * Mapping from a domain to a response.
  *
  * @param <DOMAIN>   the domain type
  * @param <RESPONSE> the response type

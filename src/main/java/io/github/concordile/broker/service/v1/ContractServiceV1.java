@@ -16,11 +16,11 @@
 
 package io.github.concordile.broker.service.v1;
 
-import io.github.concordile.broker.dto.v1.ContractDtoV1;
-import io.github.concordile.broker.dto.v1.NewContractDtoV1;
+import io.github.concordile.broker.payload.v1.ContractResponseV1;
+import io.github.concordile.broker.payload.v1.NewContractRequestV1;
 
 public interface ContractServiceV1 {
 
-    ContractDtoV1 addContract(NewContractDtoV1 contract);
+    ContractResponseV1 addContract(NewContractRequestV1 contract);
 
 }

@@ -15,6 +15,6 @@
  */
 
 @NonNullApi
-package io.github.concordile.broker.dto.v1;
+package io.github.concordile.broker.payload.v1;
 
 import org.springframework.lang.NonNullApi;
