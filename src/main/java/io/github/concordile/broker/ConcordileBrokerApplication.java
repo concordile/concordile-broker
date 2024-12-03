@@ -20,10 +20,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ConcordileApplication {
+public class ConcordileBrokerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConcordileApplication.class, args);
+        SpringApplication.run(ConcordileBrokerApplication.class, args);
     }
 
 }
