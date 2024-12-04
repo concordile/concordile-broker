@@ -1,0 +1,27 @@
+name: concordile
+
+services:
+  app:
+    image: concordile/concordile-broker:0.1.0-SNAPSHOT
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/concordile-db
+      SPRING_DATASOURCE_USERNAME: concordile-user
+      SPRING_DATASOURCE_PASSWORD: concordile-pass
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: concordile-db
+      POSTGRES_USER: concordile-user
+      POSTGRES_PASSWORD: concordile-pass
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
