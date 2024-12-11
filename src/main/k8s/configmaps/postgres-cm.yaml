@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-cm
+  namespace: c8e
+data:
+  database: c8e

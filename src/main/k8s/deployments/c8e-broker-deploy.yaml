@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: c8e-broker
+  namespace: c8e
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: c8e-broker
+  template:
+    metadata:
+      labels:
+        app: c8e-broker
+    spec:
+      containers:
+        - name: c8e-broker
+          image: concordile/concordile-broker:0.1.0-SNAPSHOT
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: c8e-broker-cm
+          env:
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-cm
+                  key: database
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: username
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password

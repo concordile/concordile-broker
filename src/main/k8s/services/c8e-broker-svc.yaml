@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: c8e-broker-svc
+  namespace: c8e
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: c8e-broker
